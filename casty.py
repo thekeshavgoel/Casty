@@ -64,8 +64,6 @@ for i in range(1, 13):
 
 counts = actor.person_id.value_counts(sort=True).copy()
 fcounts = actress.person_id.value_counts(sort=True).copy()
-# db= MySQLdb.connect(host="localhost", user="root", passwd="rootuser", db="imdb")
-# cur = db.cursor()
 
 
 def actorsCount(fname, lname):
