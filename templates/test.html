@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/users.css') }}">
+</head>
+<body>
+<form action="/action_page.html" method="get">
+	<select name= actors method="GET" action="/">
+	    {% for a in actors %}
+	    <option value= "{{a[0]}}" SELECTED>{{a[1]}}</option>
+	    {% endfor %}
+	</select>
+	<input type="submit">
+</form>
+</body>
+</html>

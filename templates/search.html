@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Casty</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/users.css') }}">
+</head>
+<body>
+
+<nav>
+    <span><b>Casty: Recommender system for actors</span>
+    <br style="clear:both;" />
+</nav>
+
+</br>
+
+<!-- <h2 class="active"><center>Casty: Recommender system for actors </center></h2>
+</br></br></br>
+ -->
+
+<form action="/find" method="get" >
+<h2 class="active">Search Yourself on Reddit</h2>
+    <table cellspacing="0" cellpadding="0" class="tabForm"  align="center" >
+        <tr>
+            <td> Name </td> 
+            <td class="vMid">
+                <input type="text"  name = "first_actor_name" placeholder="First Name">
+                <input type="text"  name = "last_actor_name" placeholder="Last Name"></br></br>
+            </td>
+        </tr>
+        <tr>
+            <td> Heurisitc to use </td>
+            <td class="vMid"> 
+                <input type="radio" name="algo" value="logreg" checked> Logistic Regression<br> 
+                <input type="radio" name="algo" value="svm"> Support Vector Machine (SVM) <br>
+                <input type="radio" name="algo" value="cosine"> Cosine Similarity <br>
+            </td>
+        </tr>
+    </table>
+
+    <h4> <center> <input type="submit" value="Search" class="btn"> </center></h4>
+</form>
+</center>	
+
+</br></br>
+<center>
+<table>
+    <tr align="center">
+        <td width="300">
+            <a href="actor?actor=2018972&name=Roberts,%20Eric&algo=svm"> 
+                <img src="{{ url_for('static', filename='images/eric.jpg') }}" height="250" />
+            </a>
+        </td>
+        <td width="300">
+            <a href="actor?actor=3598850&name=Moore,%20Juliane&algo=svm"> 
+                <img src="{{ url_for('static', filename='images/julianne_moore.jpg') }}" height="250" />
+            </a>
+        </td>
+        <td width="300">
+            <a href="actor?actor=1239460&name=Kher,%20Anupam&algo=svm"> 
+                <img src="{{ url_for('static', filename='images/anupam_kher.jpg') }}" height="250" />
+            </a>
+        </td>
+        <td width="300">
+            <a href="actor?actor=2904289&name=Chawla,%20Juhi&algo=svm"> 
+                <img src="{{ url_for('static', filename='images/juhi_chawla.jpg') }}" height="250" />
+            </a>
+        </td>
+    </tr>
+
+    <tr align="center">
+        <td class="vMid">
+            Eric Roberts
+        </td>
+        <td class="vMid">
+            Julianne Moore
+        </td>
+        <td class="vMid">
+            Anupam Kher
+        </td>
+        <td class="vMid">
+            Juhi Chawla
+        </td>
+</table>
+</center>
+</body>
+</html>

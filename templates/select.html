@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Casty</title>
+   <!-- /*<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style> -->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/users.css') }}">
+</head>
+
+<body>
+
+
+<nav>
+    <span><b>Casty: Recommender system for actors</span>
+    <br style="clear:both;" />
+</nav>
+
+</br>
+
+<center>
+<p>
+<h2 class="active">Please select the actor or actress:</h2>
+</p>
+
+<table cellspacing="0" cellpadding="0" class="tabList"  align="center" >
+    <col width="70%">
+    <col width="30%">
+    <tr>
+        <th><b>Name</th>
+        <th> <b>Acting credits </th>
+    </tr>
+    {% for a in actors %}
+    <tr class="">
+    	<td> <a href="actor?actor={{a[0]}}&name={{a[1]}}&algo={{algo}}">{{a[1]}}</a>
+        <td> {{a[2]}} </td>    	
+    </tr>
+    {% endfor %}
+</table>
+</center>	
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Casty</title>
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/users.css') }}">
+</head>
+<body>
+
+
+<nav>
+    <span><b>Casty: Recommender system for actors</span>
+    <br style="clear:both;" />
+</nav>
+
+</br>
+
+<h2 class="active">{{name}}</h2>
+
+<h3>The following movies (roles) might be of interest to {{name}}:</h3>
+</br></br>
+<center>
+<table class="tabList">
+	<tr>
+    	<th><b>Title</th>
+    	<th><b>Prob. of Actor Auditioning</th>
+<!--     	<th><b>Predicted Response</th>
+ -->    	<th><b>Actual Response</th>
+    </tr>
+    {% for i in range(0, length) %}
+    <tr>
+    	<td>{{titles[i]}}</td>
+    	<td>{{prob[i]}}</td>
+<!--     	<td>{{clasf[i]}}</td>
+ -->    	<td>{{actual[i]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="actor_more?actor={{actor_id}}&name={{name}}&algo={{algo}}">Show More</a></br>
+<h3>Statistics</h3>
+<table class="tabList">
+	<tr>
+		<td><b>Number of movies in Training set</td>
+		<td>{{lengh[0]}}</td>
+	</tr>
+	<tr>
+		<td><b>Number of movies in Testing set</td>
+		<td>{{lengh[1]}}</td>
+	</tr>
+	<tr>
+		<td><b>Number of movies in Training set in which the Actor appeared</td>
+		<td>{{sums[0]}}</td>
+	</tr>
+	<tr>
+		<td><b>Number of movies in Testing set in which the Actor appeared</td>
+		<td>{{sums[1]}}</td>
+	</tr>
+<!-- 	<tr>
+		<td><b>Number of movies Actor is predicted to audition for</td>
+		<td>{{sums[2]}}</td>
+	</tr>
+    <tr>
+        <td><b>Movies Correctly predicted</td>
+        <td>{{sums[3]}}</td>
+    </tr> -->
+</table>
+</center>
+</body>
+</html>
