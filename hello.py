@@ -26,6 +26,10 @@ def actor():
 		predicts = casty.logreg(int(actor))
 	elif algo == "svm":
 		predicts = casty.svmc(int(actor))
+	elif algo == "jac":
+		predicts = casty.jaccard_sim(int(actor))
+	elif algo == "pcc":
+		predicts = casty.pearson_sim(int(actor))
 	else:
 		predicts = casty.cosine_sim(int(actor))
 	leng = predicts[0]
@@ -47,6 +51,10 @@ def actor_more():
 		predicts = casty.logreg(int(actor), 1)
 	elif algo == "svm":
 		predicts = casty.svmc(int(actor), 1)
+	elif algo == "jac":
+		predicts = casty.jaccard_sim(int(actor), 1)
+	elif algo == "pcc":
+		predicts = casty.pearson_sim(int(actor), 1)
 	else:
 		predicts = casty.cosine_sim(int(actor), 1)
 	leng = predicts[0]

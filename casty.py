@@ -246,7 +246,7 @@ def svmc(actor_id, lg=0):
 	return [[len(y_train), len(y_test)], [i.decode('utf8').encode('ascii', errors='ignore') for i in df.loc[inxs].Title.tolist()], proba[top10_idx, 1], y_pred[top10_idx], y_test.values[top10_idx], [sum(y_train), sum(y_test), sum(y_pred), len(yf)]]
 
 
-def jaccard_sim(actor_id):
+def jaccard_sim(actor_id, lg=0):
 	counts = actor.person_id.value_counts(sort=True).copy()
 	dataframe = actor
 	a = np.where(counts.index == actor_id)
@@ -339,7 +339,10 @@ def jaccard_sim(actor_id):
 	
 	y_pred = np.zeros(len(y))
 	y_pred[v]  = 1
-	top10_idx = np.argsort(sim)[-11:][9::-1]
+	top10_idx = np.argsort(sim)[-10:][::-1]
+	if lg == 1:
+		top10_idx = np.argsort(sim)[-20:][9::-1]
+	
 	top10_idx = [i for i in top10_idx]
 
 	indc = np.array(y.index.tolist())[top10_idx]
@@ -447,7 +450,7 @@ def cosine_sim(actor_id, lg=0):
 	return [[len(rndom), len(to_add)], [i.decode('utf8').encode('ascii', errors='ignore') for i in df.loc[inxs].Title.tolist()], sim[top10_idx].tolist(), y_pred[top10_idx], y.values[top10_idx], [len(rndom), sum(y), sum(y_pred), yf]]
 	
 
-def pearson_sim(actor_id):
+def pearson_sim(actor_id, lg=0):
 	counts = actor.person_id.value_counts(sort=True).copy()
 	dataframe = actor
 	a = np.where(counts.index == actor_id)
@@ -530,9 +533,11 @@ def pearson_sim(actor_id):
 
 	y_pred = np.zeros(len(y))
 	y_pred[v]  = 1
-	top10_idx = np.argsort(sim)[-11:][9::-1]
-	top10_idx = [i-1 for i in top10_idx]
+	top10_idx = np.argsort(sim)[-10:][::-1]
+	if lg == 1:
+		top10_idx = np.argsort(sim)[-20:][9::-1]
 
+	top10_idx = [i for i in top10_idx]
 	indc = np.array(y.index.tolist())[top10_idx]
 	inxs = movies.iloc[indc].Id.values
 

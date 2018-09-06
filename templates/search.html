@@ -19,7 +19,7 @@
  -->
 
 <form action="/find" method="get" >
-<h2 class="active">Search Yourself on Reddit</h2>
+<h2 class="active">Search an Actor or Actress:</h2>
     <table cellspacing="0" cellpadding="0" class="tabForm"  align="center" >
         <tr>
             <td> Name </td> 
@@ -29,11 +29,13 @@
             </td>
         </tr>
         <tr>
-            <td> Heurisitc to use </td>
+            <td> Recommendation Algorithm </td>
             <td class="vMid"> 
                 <input type="radio" name="algo" value="logreg" checked> Logistic Regression<br> 
                 <input type="radio" name="algo" value="svm"> Support Vector Machine (SVM) <br>
                 <input type="radio" name="algo" value="cosine"> Cosine Similarity <br>
+                <input type="radio" name="algo" value="jac"> Jaccard Similarity <br>
+                <input type="radio" name="algo" value="pcc"> PCC <br>
             </td>
         </tr>
     </table>
